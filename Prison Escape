@@ -16,52 +16,52 @@ public class TextController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (myState == States.cell) {
-			state_cell ();
+			cell ();
 		} else if (myState == States.sheets_0) {
-			state_sheets_0 ();
+			sheets_0 ();
 		} else if (myState == States.sheets_1) {
-			state_sheets_1 ();
+			sheets_1 ();
 		} else if (myState == States.mirror) {
-				state_mirror ();
+				mirror ();
 		} else if (myState == States.cell_mirror) {
-			state_cell_mirror ();
+			cell_mirror ();
 		} else if (myState == States.lock_0) {
-			state_lock_0 ();
+			lock_0 ();
 		} else if (myState == States.lock_1) {
-			state_lock_1();
+			lock_1();
 		} else if (myState == States.cell_mirror_sheets) {
-			state_cell_mirror_sheets();
+			cell_mirror_sheets();
 		} else if (myState == States.lock_2) {
-			state_lock_2();
+			lock_2();
 		} else if (myState == States.door_open_0) {
-			state_door_open_0();
+			door_open_0();
 		} else if (myState == States.door_open_1) {
-			state_door_open_1();
+			door_open_1();
 		} else if (myState == States.corridor_0) {
-			state_corridor_0();
+			corridor_0();
 		} else if (myState == States.floor) {
-			state_floor();
+			floor();
 		} else if (myState == States.closet_door_0) {
-			state_closet_door_0();
+			closet_door_0();
 		} else if (myState == States.closet_door_1) {
-			state_closet_door_1();
+			closet_door_1();
 		} else if (myState == States.stairs_0) {
-			state_stairs_0();
+			stairs_0();
 		} else if (myState == States.corridor_1) {
-			state_corridor_1();
+			corridor_1();
 		} else if (myState == States.closet) {
-			state_closet();
+			closet();
 		} else if (myState == States.stairs_1) {
-			state_stairs_1();
+			stairs_1();
 		} else if (myState == States.corridor_2) {
-			state_corridor_2();
+			corridor_2();
 		} else if (myState == States.corridor_3) {
-			state_corridor_3();
+			corridor_3();
 		} else if (myState == States.courtyard) {
-			state_courtyard();
+			courtyard();
 	}
 }
-	void state_cell() {
+	void cell() {
 		text.text = "You are in a prison cell, and you want to escape. There are " +
 					"some dirty sheets on the bed, a mirror on the wall, and the door " +
 					"is locked from the outside.\n\n" +
@@ -77,13 +77,13 @@ public class TextController : MonoBehaviour {
 		} 
 	}
 	
-	void state_sheets_0(){
+	void sheets_0(){
 		text.text = "You can't believe you sleep in these things. \n\n Press R to return to roaming your cell.";
 		if (Input.GetKeyDown("r")) {
 			myState = States.cell;
 		}
 	}
-	void state_sheets_1(){
+	void sheets_1(){
 		text.text = "You could slice up your sheets with the mirror if you wanted to." + 
 					"\n\n Press R to return to roaming your cell or C to cut up the sheets.";
 		if (Input.GetKeyDown("r")) {
@@ -93,14 +93,14 @@ public class TextController : MonoBehaviour {
 			myState = States.cell_mirror_sheets;
 		}
 	}
-	void state_lock_0(){
+	void lock_0(){
 		text.text = "A simple button lock on the other side of the bars. If only you could see it..." +
 					"\n\n Press R to return to your cell";
 		if (Input.GetKeyDown("r")) {
 			myState = States.cell;
 		}
 	}
-	void state_mirror(){
+	void mirror(){
 		text.text = "A broken mirror. You could snap a piece off of it if you really wanted to." +
 					"\n\n Press T to take a shard or R to return to roaming your cell.";
 		if (Input.GetKeyDown("r")) {
@@ -110,7 +110,7 @@ public class TextController : MonoBehaviour {
 			myState = States.cell_mirror;
 		}
 	}
-	void state_cell_mirror(){
+	void cell_mirror(){
 		text.text = "You're standing in your cell holding a long, jagged fragment of mirror." + 
 				"\n\n Press S to view sheets or L to view lock";
 		if (Input.GetKeyDown(KeyCode.S)) {
@@ -121,7 +121,7 @@ public class TextController : MonoBehaviour {
 		} 
 
 	}
-	void state_cell_mirror_sheets(){
+	void cell_mirror_sheets(){
 		text.text = "You're standing in your cell holding a long, jagged fragment of mirror " + 
 					"as well as some worthless scraps of cloth. \n\n Press L to view lock";
 
@@ -130,7 +130,7 @@ public class TextController : MonoBehaviour {
 		} 
 		
 	}
-	void state_lock_1(){
+	void lock_1(){
 		text.text = "A simple button lock on the other side of the bars. \n\n Press U to use mirror or R to return to your cell";
 		if (Input.GetKeyDown(KeyCode.R)) {
 			myState = States.cell_mirror;
@@ -140,7 +140,7 @@ public class TextController : MonoBehaviour {
 		}
 	}
 	
-	void state_lock_2(){
+	void lock_2(){
 		text.text = "A simple button lock on the other side of the bars. \n\n Press U to use mirror or R to return to your cell";
 		if (Input.GetKeyDown(KeyCode.R)) {
 			myState = States.cell_mirror_sheets;
@@ -149,14 +149,14 @@ public class TextController : MonoBehaviour {
 			myState = States.door_open_1;
 		}
 	}
-	void state_door_open_0() {
+	void door_open_0() {
 		text.text = "You use the mirror to look at the bars and notice that there are oily fingerprints on the buttons! " +
 			"You figure out the simple code and the cell door slides open.\n\n Press space to exit your cell.";
 		if (Input.GetKeyDown("space")) {
 			myState = States.corridor_0;
 		}
 	}
-	void state_door_open_1() {
+	void door_open_1() {
 		text.text = "You use the mirror to look at the bars and notice that there are oily fingerprints on the buttons! " +
 					"You figure out the simple code and the cell door slides open. The sheets in your hand spontaneously combust and disappear." +
 					"\n\n Press space to exit your cell.";
@@ -164,7 +164,7 @@ public class TextController : MonoBehaviour {
 			myState = States.corridor_0;
 		}
 	}
-	void state_corridor_0() {
+	void corridor_0() {
 		text.text = "You're standing in a long corridor inadequately lit by a single flourescent bulb above you. " +
 					"There are stairs going up here, as well as a closet and two other cells which are currently empty." +
 					"\n\n Press S to slink up the stairs, C to check the closet, or E to examine your surroundings.";
@@ -179,14 +179,14 @@ public class TextController : MonoBehaviour {
 		}
 	}
 	
-	void state_stairs_0() {
+	void stairs_0() {
 		text.text = "You casually walk up the stairs and are immediately caught and thrown back into your cell." +
 					"\n\n GAME OVER \n\n Insert 3 credits to try again.";
 		if (Input.GetKeyDown("space")) {
 			myState = States.cell;
 		}
 	}
-	void state_floor() {
+	void floor() {
 		text.text = "The floor is fairly clean but scuffed in multiple places. There's a hair pin in the corner" +
 					"\n\n Press T to take hair pin, or R to stop crawling on the floor";
 		if (Input.GetKeyDown(KeyCode.T)) {
@@ -196,13 +196,13 @@ public class TextController : MonoBehaviour {
 			myState = States.corridor_0;
 		}
 	}
-	void state_closet_door_0() {
+	void closet_door_0() {
 		text.text = "This seems to be a janitorial supply closet. It is locked \n\n Press R to return to the corridor";
 		if (Input.GetKeyDown(KeyCode.R)) {
 			myState = States.corridor_0;
 		}
 	}
-	void state_corridor_1() {
+	void corridor_1() {
 		text.text = "You're standing in a long corridor inadequately lit by a single flourescent bulb above you. " +
 					"There are stairs going up here, as well as a closet and two other cells which are currently empty. " +
 					"They hairpin in your hand does nothing to alleviate your anxiety." +
@@ -214,14 +214,14 @@ public class TextController : MonoBehaviour {
 			myState = States.closet_door_1;
 		}
 	}
-	void state_stairs_1() {
+	void stairs_1() {
 		text.text = "You bravely sneak up the stairs, and immediately bump into a guard. Your hairpin is quite useless as " +
 		"a defensive item, and you are thrown back in your cell. \n\n GAME OVER \n\n Sacrifice a goat to play again";
 		if (Input.GetKeyDown(KeyCode.Space)) {
 			myState = States.cell;
 		}
 	}
-	void state_closet_door_1() {
+	void closet_door_1() {
 		text.text = "The door is still locked, but you might be able to pick it with the hairpin." +
 					"\n\n Press U to use the hairpin, or R to return to the corridor";
 		if (Input.GetKeyDown(KeyCode.U)) {
@@ -231,7 +231,7 @@ public class TextController : MonoBehaviour {
 			myState = States.corridor_1;
 		}
 	}
-	void state_closet() {
+	void closet() {
 		text.text = "You find the closet to be larger on the inside than it looked from the outside. " +
 					"You find a bunch of cleaning supplies as well as a janitor's uniform" +
 					"\n\nPress C to change into the uniform or R to return to the corridor";
@@ -242,7 +242,7 @@ public class TextController : MonoBehaviour {
 			myState = States.corridor_2;
 		}
 	}
-	void state_corridor_2() {
+	void corridor_2() {
 		text.text = "You're standing in a long corridor inadequately lit by a single flourescent bulb above you. " +
 					"There are stairs going up here, as well as a closet and two other cells which are currently empty. " +
 					"The hairpin in your hand does nothing to alleviate your anxiety." +
@@ -254,7 +254,7 @@ public class TextController : MonoBehaviour {
 			myState = States.closet;
 		}
 	}
-	void state_corridor_3() {
+	void corridor_3() {
 		text.text = "You're standing in a long corridor inadequately lit by a single flourescent bulb above you. " +
 					"There are stairs going up here, as well as a closet and two other cells which are currently empty." +
 					"\n\n The janitor's uniform you're wearing is stiff, itchy, and smells of mildew. It's been quite a long time since anyone cleaned these..." +
@@ -263,7 +263,7 @@ public class TextController : MonoBehaviour {
 			myState = States.courtyard;
 		}
 	}
-	void state_courtyard() {
+	void courtyard() {
 		text.text = "You confidently walk past the guard at the top of the stairs and out into the courtyard. " +
 		"The sun warms your face as you look up, and fresh air fills your lungs. Without conscious thought, " +
 		"a smile creeps across your face as you exit the main gate and stroll towards freedom." +
